@@ -1,2 +1,2 @@
-# algorithms
-algorithms playground
+# Algorithms
+Algorithms playground
