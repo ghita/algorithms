@@ -33,15 +33,24 @@ function generateArray(len: number) {
 
 const array = generateArray(1000000);
 array.sort((a, b) => a - b);
-const time = timing.addTiming(binarySearch);
-let res = time(
-  array,
-  array[100],
-  function(a: number, b: number) {
-    return a - b;
-  },
-  0,
-  array.length - 1
-);
+
+let longSearch = () => {
+  let res = 0;
+  for (let i = 0; i < 100000; i++) {
+    res = binarySearch(
+      array,
+      array[i],
+      function(a: number, b: number) {
+        return a - b;
+      },
+      0,
+      array.length - 1
+    );
+  }
+  return res;
+};
+
+const time = timing.addTiming(longSearch); // ~50ms run time
+let res = time();
 
 console.log("TCL: binarySearch", res);
