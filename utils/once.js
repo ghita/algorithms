@@ -10,7 +10,7 @@ const once = function(fn) {
   };
 };
 
-let fun = () => {
+const fun = () => {
   console.log("fun called");
 };
 
